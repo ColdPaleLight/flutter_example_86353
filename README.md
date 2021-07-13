@@ -1,16 +1,7 @@
-# app
+This is a minimal complete reproducible code sample for 
 
-A new Flutter project.
+#### step to reproduce
+1. Click Button "Present FlutterVC B" to present FlutterVC B https://github.com/flutter/flutter/issues/86353
+2. Click Button "Dismiss FlutterVC B and trigger Crash" to trigger raster thread crash
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

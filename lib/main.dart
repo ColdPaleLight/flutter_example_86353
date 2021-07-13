@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 
 void main() {
   runApp(const MyApp());
@@ -47,8 +48,16 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   int _counter = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    WidgetsBinding.instance?.addObserver(this);
+    super.initState();
+
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -59,6 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  @override
+  void didChangeMetrics() {
+    MediaQueryData data = MediaQueryData.fromWindow(ui.window);
+
+    print('screen_height : ${data.size.height}');
   }
 
   @override
@@ -95,13 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Image.network('https://lh3.googleusercontent.com/proxy/8mPuPj7soM-irhqsRug_YXo8Y2OzutHFWTVxw7P1u3wRCsLZWfCYzU-hdik1NMgBKZLeOlN_3of7kvLkgSCgdCOhMz-iUchLu49KCCJdK7eqIDLNRy_m0g'),
+            SizedBox(height: 50),
           ],
         ),
       ),
